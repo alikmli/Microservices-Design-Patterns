@@ -1,0 +1,20 @@
+version: "3.8"
+services:
+  mysql:
+    container_name: mysql
+    image: mysql:8.0
+    restart: on-failure
+    environment:
+      MYSQL_USER: user
+      MYSQL_PASSWORD: passwd_user
+      MYSQL_ROOT_PASSWORD: passwd_user
+      MYSQL_DATABASE: commerce
+      MYSQL_ROOT_HOST: '%'
+    ports:
+      - "3306:3306"
+    networks:
+      - mysql_net
+
+networks:
+  mysql_net:
+    driver: bridge
