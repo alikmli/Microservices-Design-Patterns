@@ -1,4 +1,4 @@
-package design.pattern.saga.entity;
+package design.pattern.saga.model.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -29,4 +29,5 @@ public class Product {
     private LocalDateTime createdAt;
     @LastModifiedDate
     private LocalDateTime updatedAt;
+
 }

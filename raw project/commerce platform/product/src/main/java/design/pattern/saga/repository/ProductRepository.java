@@ -1,6 +1,6 @@
 package design.pattern.saga.repository;
 
-import design.pattern.saga.entity.Product;
+import design.pattern.saga.model.entity.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
