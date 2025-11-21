@@ -22,6 +22,6 @@ public class Gateway
                     return predicateSpec.path("/api/v1/product/**")
                             .filters(gatewayFilterSpec -> gatewayFilterSpec.rewritePath("/api/v1/product/?(<segment>.*)", "/api/v1/product/${segment}"))
                             .uri("lb://PRODUCT");
-                }).build();
+                }).build(); 
     }
 }
