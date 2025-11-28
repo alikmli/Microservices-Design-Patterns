@@ -2,11 +2,11 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>design.pattern.saga</groupId>
-  <artifactId>saga-choreography</artifactId>
+  <groupId>design.pattern</groupId>
+  <artifactId>micro-design-pattern</artifactId>
   <version>1.0</version>
   <packaging>pom</packaging>
-  <name>saga-choreography</name>
+  <name>micro-design-pattern</name>
 
   <modules>
     <module>order</module>
@@ -17,6 +17,7 @@
     <module>inventory</module>
     <module>eurekaserver</module>
     <module>gateway</module>
+    <module>common</module>
   </modules>
 
 
