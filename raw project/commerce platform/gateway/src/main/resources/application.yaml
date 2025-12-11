@@ -8,6 +8,11 @@ spring:
           discovery:
             locator:
               enabled: false
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: http://localhost:8180/realms/commerce_dev/protocol/openid-connect/certs
 
 
 eureka:
