@@ -1,4 +1,4 @@
-package design.pattern.entity;
+package design.pattern.model.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -9,6 +9,7 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @EntityListeners(value = AuditingEntityListener.class)
@@ -17,18 +18,17 @@ import java.time.LocalDateTime;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Inventory {
+public class Discount {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Long productId;
-    private Integer available;
-    private Integer reserved;
+    private String code;
+    private BigDecimal percentage;
+    private LocalDateTime expireTime;
 
     @CreatedDate
     private LocalDateTime createdAt;
-
     @LastModifiedDate
     private LocalDateTime updatedAt;
 }

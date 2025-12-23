@@ -11,9 +11,8 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ProductDto implements Serializable {
+    private Long id;
     private String name;
     private String description;
     private BigDecimal price;
-
-
 }

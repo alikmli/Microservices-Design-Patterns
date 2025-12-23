@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Objects;
+
 @RestController
 @RequestMapping("api/v1/product")
 public class ProductController {
@@ -15,13 +17,21 @@ public class ProductController {
     private ProductService productService;
 
     @PostMapping("/save")
-    public void saveProduct(@RequestBody ProductDto productDto) {
-        productService.save(productDto);
+    public ResponseEntity<ServiceResult<?>> saveProduct(@RequestBody ProductDto productDto) {
+        return ResponseEntity.ok(new ServiceResult<>(productService.save(productDto)));
     }
 
-    @GetMapping("/find/{name}")
-    public ResponseEntity<ServiceResult<?>> findProduct(@PathVariable(name = "name") String name) {
-        ProductDto product = productService.findByName(name);
-        return ResponseEntity.ok(new ServiceResult<>(product));
+    @GetMapping("/find/name/{name}")
+    public ResponseEntity<ServiceResult<?>> findProductByName(@PathVariable(name = "name") String name) {
+        return ResponseEntity.ok(new ServiceResult<>(productService.findByName(name)));
+    }
+
+    @GetMapping("/find/id/{id}")
+    public ResponseEntity<ServiceResult<?>> findProductById(@PathVariable(name = "id") Long id) {
+        ProductDto product = productService.findById(id);
+        if(Objects.nonNull(product)) {
+            return ResponseEntity.ok(new ServiceResult<>(product));
+        }
+        return ResponseEntity.notFound().build();
     }
 }
